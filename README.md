@@ -1,5 +1,9 @@
 # feez_Arduino-Android<br>
 <br>
+Arduino UNO R3 PINOUT<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/arduino-uno3-pinout.jpg"/>
+
+<br>
 1.Dual H-bridge<br>
 http://naringroup.blogspot.com/2016/03/robot-l298n-dual-h-bridge-motor.html<br>
 http://naringroup.blogspot.com/2016/03/arduino-pwm.html<br><br>
