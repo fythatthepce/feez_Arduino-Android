@@ -1,6 +1,5 @@
 # feez_Arduino-Android<br>
 <br>
-Arduino UNO R3 PINOUT<br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/arduino-uno3-pinout.jpg"/>
 
 <br>
