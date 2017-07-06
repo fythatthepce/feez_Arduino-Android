@@ -1,5 +1,6 @@
 # Bluetooth<br>
 <br>
+ref:http://howtomechatronics.com/tutorials/arduino/arduino-and-hc-05-bluetooth-module-tutorial/<br>
 ref:http://blog.redlinesoft.net/?p=3003<br>
 connect : <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b1.png"/>
