@@ -26,6 +26,9 @@ Connect Mobile : <br>
 <br>
 <br>
 2.app + arduino<br>
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/android-studio-logo.png"/><br><br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/blue1.png"/><br><br>
 เมื่อตั้งชื่อ และ รหัสของ Bluetooth ต่อไปจะทำให้ android application ควบคุม arduino โดยให้ทำการเขียน android application และ เขียนโค้ด arduino โดยให้เราทำการอัพโค้ดลง arduino ก่อนที่จะต่อ vcc เข้า HC-05(Bluetooth) เมื่ออัพโค้ดเสร็จให้ต่อ vcc เข้าตามปกติ แล้วทำการทดสอบ
 
 
