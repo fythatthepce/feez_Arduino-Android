@@ -16,7 +16,7 @@ Setting : <br>
 <br>
 เปลี่ยนพาสที่ใช้จับคู่ ใช้คำสั่ง AT+PSWD=New Password เช่น ต้องการตั้งค่าเป็นรหัส 9876 ต้องใช้คำสั่ง AT+PSWD=9876<br>
 <br><br>
-Connect Mobile : <br>
+Connect Mobile test by Bluetooth Terminal ไม่จำเป็นต้องทดสอบก็ได้ ข้ามไปทำ part android เลย : <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b3.png"/>
 <br><br>
 จากนั้นไปโหลดแอพ Bluetooth Terminal มา แอพนี้จะใช้สำหรับส่งข้อมูลไปให้โมดูล HC05 สามารถโหลดได้ที่ : https://play.google.com/store/apps/details?id=Qwerty.BluetoothTerminal&hl=th<br>
