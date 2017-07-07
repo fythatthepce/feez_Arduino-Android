@@ -1,5 +1,6 @@
 # Bluetooth<br>
 <br>
+1.ตั้งชื่อและพาสของ Bluetooth HC-05<br>
 ref:http://howtomechatronics.com/tutorials/arduino/arduino-and-hc-05-bluetooth-module-tutorial/<br>
 ref:http://blog.redlinesoft.net/?p=3003<br>
 connect : <br>
@@ -22,6 +23,10 @@ Connect Mobile : <br>
 
  เปิดแอพขึ้นมา จะพบกับหน้าต่างง่ายๆ หากชื่อในช่องตรงกับชื่อของโมดูล HC05 ที่ได้ตั้งไว้ ก็สามารถกด Connect ได้เลย
 <br>
+<br>
+<br>
+2.app + arduino<br>
+เมื่อตั้งชื่อ และ รหัสของ Bluetooth ต่อไปจะทำให้ android application ควบคุม arduino โดยให้ทำการเขียน android application และ เขียนโค้ด arduino โดยให้เราทำการอัพโค้ดลง arduino ก่อนที่จะต่อ vcc เข้า HC-05(Bluetooth) เมื่ออัพโค้ดเสร็จให้ต่อ vcc เข้าตามปกติ แล้วทำการทดสอบ
 
 
 
