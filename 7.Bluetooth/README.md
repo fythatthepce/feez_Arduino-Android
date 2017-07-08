@@ -26,6 +26,10 @@ Connect Mobile test by Bluetooth Terminal ไม่จำเป็นต้อ�
 <br>
 <br>
 2.app + arduino<br>
+ref:http://www.instructables.com/id/Modify-The-HC-05-Bluetooth-Module-Defaults-Using-A/<br>
+ref:http://www.instructables.com/id/Android-Bluetooth-Control-LED-Part-2/<br>
+ref:http://www.instructables.com/id/Android-Aplication-for-Robot-Control-Using-HC-05-a/<br>
+ref:https://www.codeproject.com/Articles/814814/Android-Connectivity<br>
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/android-studio-logo.png"/><br><br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/blue1.png"/><br><br>
