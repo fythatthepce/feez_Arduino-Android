@@ -17,7 +17,7 @@ https://www.arduinothai.com/article/13/arduino-%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B9
 ซึ่งการใช้เทคนิค PWM นั้น จะเป็นการทำให้พอร์ตดิจิตัล สามารถเขียนค่าได้มากกว่า HIGH หรือ LOW
 โดย ทำให้สามารถเขียนค่าเป็นแบบอะนาล๊อกได้ (อาจเป็น 0-255 หรือ 0-1023) <br>
 ARDUINO-UNO-PWM = 3, 5, 6, 9, 10 และ 11 ตั้งค่าเอาท์พุทของ PWM ให้เป็น 8 bit ด้วยฟังก์ชั่น analogWrite()<br>
-Moter ตัว H bridge ต้องเอาไฟจาก 5v , 5v และ GND ที่บอร์ด arduinoโดยใช้ powerbank เป็นแหล่งจ่ายหลัก ถ้าจะเพิ่มความเร็วก็เอาถ่านมาต่อเพิ่มตรง vcc และ GND ของ H-Bridge<br>
+Moter ตัว H bridge ต้องเอา GND ที่บอร์ด arduino ต่อ H-bridge โดยใช้ powerbank เป็นแหล่งจ่ายหลัก ถ้าจะเพิ่มความเร็วก็เอาถ่านมาต่อเพิ่มตรง vcc และ GND ของ H-Bridge<br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/map.png"/>
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/control-motor.png"/><br>
