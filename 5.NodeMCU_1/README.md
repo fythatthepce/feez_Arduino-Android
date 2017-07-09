@@ -2,6 +2,7 @@
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/nodemcu_pins.png"/>
 <br>
+In NodeMCU, D1~12 pins have the PWM function (excluding D0). PWM frequency can cover 1~1000Hz, the cycle scope is 0~1023(i.e., 0%~100%).<br>
 <br>
 1.install USB driver for NodeMCU : https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers <br><br>
 Ref : https://www.losant.com/blog/getting-started-with-platformio-esp8266-nodemcu <br><br><br>
