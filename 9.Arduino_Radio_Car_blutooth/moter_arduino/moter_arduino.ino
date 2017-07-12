@@ -91,7 +91,7 @@ void forward(){
      //MOTER B
      digitalWrite(IN3,HIGH);
      digitalWrite(IN4,LOW);
-     analogWrite(ENB,138);   //speed 138(5V)  MAX = 255(7.6V)
+     analogWrite(ENB,172);   //speed 138(5V)  MAX = 255(7.6V)
 }
      
 
@@ -100,7 +100,7 @@ void backward(){
       //MOTER B
      digitalWrite(IN3,LOW);
      digitalWrite(IN4,HIGH);
-     analogWrite(ENB,138);   
+     analogWrite(ENB,172);   
 }
 //END MOTER B
 
@@ -111,14 +111,14 @@ void left(){
      //MOTER A
      digitalWrite(IN1,HIGH);
      digitalWrite(IN2,LOW);
-     analogWrite(ENA,138);
+     analogWrite(ENA,158);
 }
 
 void right(){
     //MOTER A
      digitalWrite(IN1,LOW);
      digitalWrite(IN2,HIGH);
-     analogWrite(ENA,138);
+     analogWrite(ENA,158);
 }
 //END MOTOR A
 
