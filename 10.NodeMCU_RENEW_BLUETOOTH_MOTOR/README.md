@@ -1,16 +1,6 @@
 # feez_Arduino-Android<br>
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/arduino-uno3-pinout.jpg"/>
-
-<br>
-1.Dual H-bridge<br>
-http://naringroup.blogspot.com/2016/03/robot-l298n-dual-h-bridge-motor.html<br>
-http://naringroup.blogspot.com/2016/03/arduino-pwm.html<br>
-https://www.arduinothai.com/article/13/arduino-%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B9%84%E0%B8%9B%E0%B8%97%E0%B8%B3%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%87-%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88-8-%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-l298n-motor-driver<br>
-
-<br>
 ** การต่อ bluetooth = TX <-> RX , RX <-> TX โดยให้อัพโค้ดลง NodeMCU ก่อนต่อ TX , RX  และทุกครั้งที่จะทพการอัพโค้ดลง NodeMCU ให้ ถอด TX , RX ออกก่อน ลงโค้ดเสร็จแล้วค่อยต่อ **<br>
-
 <B>How to control?</B><br>
 <br>PWM หมายถึง Pulse Width Modulation เป็นเทคนิคที่ Arduino ใช้ในการควบคุมวงจร
 และ เขียนค่าแบบอะนาล๊อก (Analog) ด้วยพอร์ตดิจิตัล (Digital) คือ โดยปกติแล้ว พอร์ตดิจิตัล จะสามารถมีได้แค่ 2 สถานะ คือ HIGH (5 โวล์ท) กับ LOW (0 โวล์ท)
@@ -25,17 +15,7 @@ Moter ตัว H bridge ต้องเอา GND ที่บอร์ด ardu
 
 
 
-2.NodeMCU + PlatformIO<br>
-https://www.losant.com/blog/getting-started-with-platformio-esp8266-nodemcu<br>
-<br>
-3.Ref Project รถบังคับ<br>
-http://www.robotsiam.com/article/8/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%84%E0%B8%A3%E0%B8%96%E0%B8%9A%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%B1%E0%B8%9A-%E0%B8%82%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%84%E0%B8%A5%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99-2-%E0%B8%A5%E0%B9%89%E0%B8%AD-arduino-%E0%B8%81%E0%B8%B1%E0%B8%9A-%E0%B9%81%E0%B8%AD%E0%B8%9E%E0%B9%81%E0%B8%AD%E0%B8%99%E0%B8%94%E0%B8%A3%E0%B8%AD%E0%B8%A2%E0%B8%94%E0%B9%8C
-<br>
-<br>
-4.servo motor<br>
-http://www.thaieasyelec.com/article-wiki/review-product-article/%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1-rc-servo-motor-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-arduino.html
-<br>
-<br>
+
 
 
 

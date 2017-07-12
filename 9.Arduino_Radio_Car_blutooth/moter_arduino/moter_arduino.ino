@@ -111,14 +111,14 @@ void left(){
      //MOTER A
      digitalWrite(IN1,HIGH);
      digitalWrite(IN2,LOW);
-     analogWrite(ENA,158);
+     analogWrite(ENA,250);
 }
 
 void right(){
     //MOTER A
      digitalWrite(IN1,LOW);
      digitalWrite(IN2,HIGH);
-     analogWrite(ENA,158);
+     analogWrite(ENA,250);
 }
 //END MOTOR A
 
