@@ -13,8 +13,6 @@ import android.app.ProgressDialog;
 
 
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
 
 
@@ -23,11 +21,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import android.os.AsyncTask;
+import android.widget.ProgressBar;
 
-import android.content.Intent;
-import android.view.Window;
-import android.view.WindowManager;
-import android.content.pm.ActivityInfo;
+
+
 
 
 public class motorControl extends AppCompatActivity {
@@ -47,11 +44,9 @@ public class motorControl extends AppCompatActivity {
     //SPP UUID. Look for it
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    /*
-    Timer timer = new Timer();
-    int startSend=0;
-    String Bm="0";
-    */
+    //Progress bar
+    private ProgressBar pg1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,36 +56,20 @@ public class motorControl extends AppCompatActivity {
         Intent newint = getIntent();
         address = newint.getStringExtra(DeviceList.EXTRA_ADDRESS); //receive the address of the bluetooth device
 
-        //view of the ledControl
-        //setContentView(R.layout.activity_remote_control);
-
-        //call the widgtes
+        //call the widgets
         btnForward = (ImageButton)findViewById(R.id.up);
         btnLeft = (ImageButton)findViewById(R.id.left);
         btnBack = (ImageButton)findViewById(R.id.down);
         btnRight = (ImageButton)findViewById(R.id.right);
         btnDis = (Button)findViewById(R.id.button_disconnect);
         //btnBreak = (Button)findViewById(R.id.break_motor);
+        pg1 = (ProgressBar)findViewById(R.id.progressBar);
 
+
+
+        //connect bluetooth
         new ConnectBT().execute(); //Call the class to connect
 
-        /*
-        //time bug
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(startSend==1)
-                            SendBluetooth(Bm);
-                    }
-                });
-
-            }
-        }, 0, 50);
-
-        startSend=1;*/
 
         /*
         //commands to be sent to bluetooth
@@ -167,9 +146,11 @@ public class motorControl extends AppCompatActivity {
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         forward();
+                        pg1.setProgress(100);
                         break;
                     case MotionEvent.ACTION_UP:
                         break_motor();
+                        pg1.setProgress(0);
                         break;
                 }
                 return false;
@@ -183,9 +164,11 @@ public class motorControl extends AppCompatActivity {
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         backward();
+                        pg1.setProgress(100);
                         break;
                     case MotionEvent.ACTION_UP:
                         break_motor();
+                        pg1.setProgress(0);
                         break;
                 }
                 return false;
@@ -198,8 +181,10 @@ public class motorControl extends AppCompatActivity {
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         left();
+                        pg1.setProgress(100);
                         break;
                     case MotionEvent.ACTION_UP:
+                        pg1.setProgress(0);
                         break_motor();
                         break;
                 }
@@ -212,9 +197,11 @@ public class motorControl extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        pg1.setProgress(100);
                         right();
                         break;
                     case MotionEvent.ACTION_UP:
+                        pg1.setProgress(0);
                         break_motor();
                         break;
                 }
@@ -373,21 +360,6 @@ public class motorControl extends AppCompatActivity {
 
     }
 
-    /*
-    //send data
-    private void SendBluetooth(String data)
-    {
-        if (btSocket!=null)
-        {
-            try {
-                btSocket.getOutputStream().write(data.toString().getBytes());
-            }
-            catch (IOException e)
-            {
-                //msg("Error");
-            }
-        }
-    }*/
 
     // fast way to call Toast
     private void msg(String s)
