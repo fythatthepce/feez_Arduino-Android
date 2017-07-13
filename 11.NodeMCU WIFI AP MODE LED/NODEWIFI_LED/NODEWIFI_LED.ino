@@ -3,15 +3,15 @@
 //////////////////////
 // WiFi Definitions //
 //////////////////////
-const char WiFiAPPSK[] = "";
+
+const char WiFiName[] = "FEEz_MCU";
+const char WiFiPass[] = "";
 
 
 /////////////////////
 // Pin Definitions //
 /////////////////////
 const int LED_PIN = 5; // Thing's onboard, green LED
-//const int ANALOG_PIN = A0; // The only analog pin on the Thing
-//const int DIGITAL_PIN = 12; // Digital pin to be read
 
 WiFiServer server(80);
 
@@ -22,7 +22,7 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
   
   //setupWiFi();
-  WiFi.softAP("FeeZ_Robot", WiFiAPPSK);
+  WiFi.softAP(WiFiName, WiFiPass);
   server.begin();
 }
 
@@ -34,6 +34,7 @@ void loop()
     return;
   }
 
+  
   // Read the first line of the request
   String req = client.readStringUntil('\r');
   Serial.println(req);
@@ -46,45 +47,46 @@ void loop()
     val = 0; // Will write LED low
   else if (req.indexOf("/led/1") != -1)
     val = 1; // Will write LED high
-  //else if (req.indexOf("/read") != -1)
-  // val = -2; // Will print pin reads
-  // Otherwise request will be invalid. We'll say as much in HTML
-
-  // Set GPIO5 according to the request
   if (val == 1)
     digitalWrite(LED_PIN,HIGH);
 
   else if (val == 0)
   digitalWrite(LED_PIN,LOW);
+  
 
   client.flush();
+  
 
 
-  // Prepare the response. Start with the common header:
+  //HTML TO REPORT IN WEB
+  
   String s = "HTTP/1.1 200 OK\r\n";
   s += "Content-Type: text/html\r\n\r\n";
   s += "<!DOCTYPE HTML>\r\n<html>\r\n";
-  // If we're setting the LED, print out a message saying we did
+  
+  s += "<h1>Control LED</h1>\r\n";
+  
+  s += "<p>\r\n";
+  s += "<a href=\"/led/1\">\r\n";
+  s += "<button>LED On</button>\r\n";
+  s += "</a>\r\n";
+  s += "</p>\r\n";
+
+   s += "<p>\r\n";
+  s += "<a href=\"/led/0\">\r\n";
+  s += "<button>LED Off</button>\r\n";
+  s += "</a>\r\n";
+  s += "</p>\r\n";
+
   if (val == 1)
   {
     s += "LED is now ";
-    //s += (val)?"on":"off";
   }
 
   else if (val == 0)
   {
     s += "LED is off ";
-    //s += (val)?"on":"off";
   }
-  /*
-  else if (val == -2)
-  { // If we're reading pins, print out those values:
-    s += "Analog Pin = ";
-    s += String(analogRead(ANALOG_PIN));
-    s += "<br>"; // Go to the next line.
-    s += "Digital Pin 12 = ";
-    s += String(digitalRead(DIGITAL_PIN));
-  }*/
   
   else
   {
@@ -92,45 +94,8 @@ void loop()
   }
   s += "</html>\n";
 
-  // Send the response to the client
   client.print(s);
   delay(1);
   Serial.println("Client disonnected");
-
-  // The client will actually be disconnected 
-  // when the function returns and 'client' object is detroyed
 }
-
-/*
-void setupWiFi()
-{
-  WiFi.mode(WIFI_AP);
-  // Do a little work to get a unique-ish name. Append the
-  // last two bytes of the MAC (HEX'd) to "Thing-":
-  uint8_t mac[WL_MAC_ADDR_LENGTH];
-  WiFi.softAPmacAddress(mac);
-  String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
-                 String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
-  macID.toUpperCase();
-  String AP_NameString = "ESP8266 Thing " + macID;
-
-  char AP_NameChar[AP_NameString.length() + 1];
-  memset(AP_NameChar, 0, AP_NameString.length() + 1);
-
-  for (int i=0; i<AP_NameString.length(); i++)
-    AP_NameChar[i] = AP_NameString.charAt(i);
-
-  WiFi.softAP("FeeZ_Robot", WiFiAPPSK);
-}*/
-
-/*
-void initHardware()
-{
-  Serial.begin(115200);
-  pinMode(DIGITAL_PIN, INPUT_PULLUP);
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
-  // Don't need to set ANALOG_PIN as input, 
-  // that's all it can be.
-}*/
 
