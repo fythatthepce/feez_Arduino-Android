@@ -124,6 +124,7 @@ void setup()
     } 
 }
 
+void(*resetFunc)(void) = 0;  //reset Function
 
 void loop() 
 {
@@ -287,6 +288,7 @@ void loop()
   //BLUETOOTH CONTROL
    if (BTSerial.available() > 0) 
     {string = "";}    //init string = NULL
+   
     
     while(BTSerial.available() > 0)
     {
@@ -329,9 +331,16 @@ void loop()
     {
         stop_motor();
     }
+
+    if(string =="Disconnect") //if string of arduino == STOP
+    {
+        //stop_motor();
+        resetFunc();
+    }
     
     Serial.println(string);  //show string of arduino in serial monitor
-  
+
+    
 }
 
 //WIFI FUNCTION
@@ -398,6 +407,8 @@ void stop_motor(){
      digitalWrite(IN2,HIGH);
      analogWrite(ENA,0);   //speed 1023 //max cycle NodeMCU
 }
+
+
 
 
 
