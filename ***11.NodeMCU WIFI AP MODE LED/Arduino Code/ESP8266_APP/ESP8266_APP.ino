@@ -1,8 +1,8 @@
-/* Create a WiFi access point and provide a web server on it. */
+/* Create a WiFi access point and provide a web server on it. 
 extern "C" {//FOR SOFT RESET
 #include "user_interface.h" //FOR SOFT RESET
 //http://www.esp8266.com/viewtopic.php?p=13165
-}
+}*/
 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h> 
@@ -31,8 +31,10 @@ String esid;
 
  
  String s ="";
- String s0 ="";
  String string1 ="";
+ 
+ /*
+ String s0 ="";
  String s1 = "1";
  String s2 = "2";
  String s9 = "9";
@@ -41,6 +43,7 @@ String esid;
  String s12 = "12";
  String s13 = "13";
  String s14 = "14";
+ */
  
  
 
@@ -51,29 +54,35 @@ ESP8266WebServer server(8888);
     char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
  
     char ReplyBuffer[] = "5"; // a string to send back
-    int serv0=0;;
-    int serv1=0;;
+    
+    int serv0=0;
+    int serv1=0;
     int serv=0;
     int serv2=0;
-    int led3=0; 
-    int led2=0; 
-    int led1=0; 
+    
+    //int led3=0; 
+    //int led2=0; 
+    //int led1=0; 
 /* Just a little test message.  Go to http://192.168.4.1 in a web browser
  * connected to this access point to see it.
  * 
  */
-const int analogInPin = A0;                                                                                                                                       
+ 
+//const int analogInPin = A0;  
+                                                                                                                                     
 boolean connectUDP();
 
 void handleRoot() {
   server.send(200, "text/html", "<h1>You are connected</h1>");
 }  
+
 void setup() 
 {
 //  delay(10);//1000
     Serial.begin(115200);
     EEPROM.begin(512);
     Serial.println();
+    
     pinMode(D1,OUTPUT);//JUST FOR ESP12E
     digitalWrite(D1,LOW);
  
@@ -83,9 +92,9 @@ void setup()
     pinMode(D3,OUTPUT);
     digitalWrite(D3,LOW);
     
-  Serial.print("Configuring access point...");
+    Serial.print("Configuring access point...");
   /* You can remove the password parameter if you want the AP to be open. */
-  //WiFi.softAP(ssid, password);
+    //WiFi.softAP(ssid, password);
     //IPAddress myIP = WiFi.softAPIP();
     //Serial.print("AP IP address: ");
     //Serial.println(myIP);
@@ -97,7 +106,7 @@ void setup()
     udpConnected = connectUDP();
     if (udpConnected)
     {
-        
+        //NULL
     }
     
 }
@@ -207,14 +216,14 @@ void loop()
     
         if(serv==9 )
         {
-            led1=1;
+            //led1=1;
             digitalWrite(D1,HIGH);
             UDP.println("9");
             serv=0;
          }
          if(serv==10)
          {
-            led1=0;
+            //led1=0;
             digitalWrite(D1,LOW);
             UDP.println("10");
             serv=0;
@@ -268,7 +277,7 @@ void loop()
  {
     boolean state = false;
 
-  //  Serial.println("");
+    //Serial.println("");
     //Serial.println("Connecting to UDP");
 
     if(UDP.begin(localPort) == 1){
@@ -276,7 +285,7 @@ void loop()
       state = true;
     }
     else{
-  
+      //NULL
     }
     return state;
 }
