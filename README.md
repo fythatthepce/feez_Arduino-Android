@@ -59,9 +59,9 @@ http://www.thaieasyelec.com/article-wiki/review-product-article/%E0%B8%9A%E0%B8%
 <br>
 BLUETOOTH MODE
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/4.png" width="400" height="650"/>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/4.png" width="400" height="650"> 
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/5.png" width="400" height="650"/>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/5.png" width="650" height="400">
 <br>ref:http://www.instructables.com/id/Android-Aplication-for-Robot-Control-Using-HC-05-a/<br>
 <br>ref:http://www.instructables.com/id/Android-Bluetooth-Control-LED-Part-2/<br>
 
@@ -73,9 +73,9 @@ BLUETOOTH MODE
 
 WIFI MODE
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png" width="400" height="650"/>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png" width="400" height="650">
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png" width="400" height="650"/>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png" width="650" height="400">
 <br>ref:https://www.swymhome.com/projects/106-esp-and-android-app?tab=project-files<br>
 
 <br>Fragment :
