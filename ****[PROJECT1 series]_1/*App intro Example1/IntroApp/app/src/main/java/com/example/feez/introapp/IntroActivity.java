@@ -1,5 +1,6 @@
 package com.example.feez.introapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,12 +28,16 @@ public class IntroActivity extends AppIntro {
     @Override
     public void onSkipPressed(Fragment currentFragment){
         super.onSkipPressed(currentFragment);
+        Intent intent = new Intent(this,main1.class);
+        startActivity(intent);
         //finish();
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment){
         super.onDonePressed(currentFragment);
+        Intent intent = new Intent(this,main1.class);
+        startActivity(intent);
         //finish();
     }
 
