@@ -1,6 +1,20 @@
 # feez_Arduino-Android<br>
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/arduino-uno3-pinout.jpg"/>
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/nodemcu_pins.png"/>
+<br>
+<br>//PIN SET NODEMCU V2
+<br>//pwm D1~D12
+<br>#define D1 5  
+<br>#define D2 4  
+<br>#define D3 0  
+<br>#define D4 2 
+<br>#define D5 14  
+<br>#define D6 12
+<br>#define D7 13
+<br>#define D8 15
+<br>
 
 <br>
 1.Dual H-bridge<br>
@@ -16,9 +30,12 @@ https://www.arduinothai.com/article/13/arduino-%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B9
 และ เขียนค่าแบบอะนาล๊อก (Analog) ด้วยพอร์ตดิจิตัล (Digital) คือ โดยปกติแล้ว พอร์ตดิจิตัล จะสามารถมีได้แค่ 2 สถานะ คือ HIGH (5 โวล์ท) กับ LOW (0 โวล์ท)
 เท่านั้น จึงทำให้สร้างค่าสัญญาณลอจิคได้เพียง เปิดหรือปิด (1 หรือ 0 , มีไฟหรือไม่มีไฟ) แค่นั้น
 ซึ่งการใช้เทคนิค PWM นั้น จะเป็นการทำให้พอร์ตดิจิตัล สามารถเขียนค่าได้มากกว่า HIGH หรือ LOW
-โดย ทำให้สามารถเขียนค่าเป็นแบบอะนาล๊อกได้ (อาจเป็น 0-255 หรือ 0-1023) <br>
+<br>
+<br>NodeMCU pwm 0 - 1023
+<br>Arduino pwm 0 - 255
+<br>
 ARDUINO-UNO-PWM = 3, 5, 6, 9, 10 และ 11 ตั้งค่าเอาท์พุทของ PWM ให้เป็น 8 bit ด้วยฟังก์ชั่น analogWrite()<br>
-Moter ตัว H bridge ต้องเอา GND ที่บอร์ด arduino ต่อ H-bridge โดยใช้ powerbank เป็นแหล่งจ่ายหลัก ถ้าจะเพิ่มความเร็วก็เอาถ่านมาต่อเพิ่มตรง vcc และ GND ของ H-Bridge<br>
+Moter ตัว H bridge ต้องเอา GND ที่ NodeMCU ต่อ H-bridge โดยใช้ powerbank หรือเอาถ่านชาร์จต่อ เข้าขา vin(5 ถึง 10v)เป็นแหล่งจ่ายไฟให้ NodeMCU ถ้าจะเพิ่มความเร็วก็เอาถ่านมาต่อเพิ่มตรง vcc และ GND ของ H-Bridge<br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/map.png"/>
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/control-motor.png"/><br>
@@ -36,6 +53,34 @@ http://www.robotsiam.com/article/8/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88
 http://www.thaieasyelec.com/article-wiki/review-product-article/%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1-rc-servo-motor-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-arduino.html
 <br>
 <br>
+
+
+<B>5.Application Control via WIFI and BLUETOOTH</B>
+<br>
+BLUETOOTH MODE
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/4.png"/>
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/5.png" />
+<br>ref:http://www.instructables.com/id/Android-Aplication-for-Robot-Control-Using-HC-05-a/<br>
+<br>ref:http://www.instructables.com/id/Android-Bluetooth-Control-LED-Part-2/<br>
+
+
+<br>
+<br>
+<br>
+<br>
+
+WIFI MODE
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png" />
+<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png" />
+<br>ref:https://www.swymhome.com/projects/106-esp-and-android-app?tab=project-files<br>
+
+<br>Fragment :
+<br>ref : https://www.youtube.com/watch?v=2gMqbDfDzu8
+<br>ref : https://stackoverflow.com/questions/20835933/intent-from-fragment-to-activity
 
 
 

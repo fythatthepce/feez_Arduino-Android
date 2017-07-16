@@ -26,6 +26,9 @@ https://www.arduinothai.com/article/13/arduino-%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B9
 
 <B>How to control?</B><br>
 Moter ตัว H bridge ต้องเอา GND ที่ NodeMCU ต่อ H-bridge โดยใช้ powerbank หรือเอาถ่านชาร์จต่อ เข้าขา vin(5 ถึง 10v)เป็นแหล่งจ่ายไฟให้ NodeMCU ถ้าจะเพิ่มความเร็วก็เอาถ่านมาต่อเพิ่มตรง vcc และ GND ของ H-Bridge<br>
+<br>NodeMCU pwm 0 - 1023
+<br>Arduino pwm 0 - 255
+<br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/map.png"/>
 <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/control-motor.png"/><br>
@@ -37,9 +40,11 @@ Moter ตัว H bridge ต้องเอา GND ที่ NodeMCU ต่อ H
 <br>
 BLUETOOTH MODE
 <br>
-https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/4.png
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/4.png"/>
 <br>
-https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/5.png
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/5.png" />
+<br>ref:http://www.instructables.com/id/Android-Aplication-for-Robot-Control-Using-HC-05-a/<br>
+<br>ref:http://www.instructables.com/id/Android-Bluetooth-Control-LED-Part-2/<br>
 
 <br>
 <br>
@@ -48,10 +53,15 @@ https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1
 
 WIFI MODE
 <br>
-https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png" />
 <br>
-https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png
-<br>
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png" />
+<br>ref:https://www.swymhome.com/projects/106-esp-and-android-app?tab=project-files<br>
+
+<br>Fragment :
+<br>ref : https://www.youtube.com/watch?v=2gMqbDfDzu8
+<br>ref : https://stackoverflow.com/questions/20835933/intent-from-fragment-to-activity
+
 
 
 
