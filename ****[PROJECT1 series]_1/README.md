@@ -68,6 +68,12 @@ WIFI MODE
 <br>ref : https://www.youtube.com/watch?v=2gMqbDfDzu8
 <br>ref : https://stackoverflow.com/questions/20835933/intent-from-fragment-to-activity
 
+<br><br><br><br>
+App intro Example ref: 
+https://github.com/apl-devs/AppIntro<br>
+https://www.youtube.com/watch?v=9KavMQpnc3M<br>
+https://www.youtube.com/watch?v=-KgAAbZz248<br>
+
 
 
 
