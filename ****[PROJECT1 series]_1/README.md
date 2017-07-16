@@ -60,7 +60,7 @@ WIFI MODE
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/6.png" width="400" height="650">
 <br>
 
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png"width="650" height="400">
+<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/****%5BPROJECT1%20series%5D_1/pic/7.png" width="650" height="400">
 
 <br>ref:https://www.swymhome.com/projects/106-esp-and-android-app?tab=project-files<br>
 
