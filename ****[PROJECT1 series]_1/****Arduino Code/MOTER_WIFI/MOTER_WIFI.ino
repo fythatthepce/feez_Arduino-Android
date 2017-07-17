@@ -27,6 +27,7 @@
 #define IN3 D6
 #define IN4 D7
 
+int speed_m = 750;
 
 //INIT WIFI
 const char WiFiName[] = "LED_via_NodeMCU_by_FeezCEkmitl";
@@ -67,6 +68,7 @@ SoftwareSerial BTSerial(D4, D8); // RX | TX
 
 char command; //command = string from android studio
 String string;  //string of arduno
+
 
 
 
@@ -367,27 +369,27 @@ void loop()
 void forward(){
      digitalWrite(IN3,HIGH);
      digitalWrite(IN4,LOW);
-     analogWrite(ENB,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENB,speed_m);   //speed 1023 //max cycle NodeMCU
 
      digitalWrite(IN1,HIGH);
      digitalWrite(IN2,LOW);
-     analogWrite(ENA,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENA,speed_m);   //speed 1023 //max cycle NodeMCU
 }
 
 void backward(){
      digitalWrite(IN3,LOW);
      digitalWrite(IN4,HIGH);
-     analogWrite(ENB,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENB,speed_m);   //speed 1023 //max cycle NodeMCU
 
      digitalWrite(IN1,LOW);
      digitalWrite(IN2,HIGH);
-     analogWrite(ENA,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENA,speed_m);   //speed 1023 //max cycle NodeMCU
 }
 
 void left(){
      digitalWrite(IN3,HIGH);
      digitalWrite(IN4,LOW);
-     analogWrite(ENB,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENB,speed_m);   //speed 1023 //max cycle NodeMCU
 
      digitalWrite(IN1,HIGH);
      digitalWrite(IN2,HIGH);
@@ -402,7 +404,7 @@ void right(){
 
      digitalWrite(IN1,HIGH);
      digitalWrite(IN2,LOW);
-     analogWrite(ENA,650);   //speed 1023 //max cycle NodeMCU
+     analogWrite(ENA,speed_m);   //speed 1023 //max cycle NodeMCU
 }
 
 void stop_motor(){
