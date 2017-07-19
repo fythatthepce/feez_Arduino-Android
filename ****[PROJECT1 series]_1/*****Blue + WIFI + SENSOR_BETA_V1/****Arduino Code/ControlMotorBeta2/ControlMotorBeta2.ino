@@ -1,12 +1,12 @@
 #include <ESP8266WiFi.h>
+#include <SoftwareSerial.h>
+
+//WiFi
 #include <WiFiClient.h> 
 #include <ESP8266WebServer.h>
 #include <EEPROM.h>
 #include <WiFiUDP.h>
 
-#include <SoftwareSerial.h>
-
-//PIN SET NODEMCU V2
 //pwm D1~D12
 #define D1 5  
 #define D2 4  
@@ -27,22 +27,27 @@
 #define IN3 D6
 #define IN4 D7
 
+int speed_m = 750;
+
 
 //for ultra sonic
 //TX RX
 #define TX 1 
 #define RX 3 
 
-//test LED
-int led =  D1;
-int led2 =  D2;
-
 const int pingPin = TX;  //Trig
 int inPin= RX;  //Echo
 //END FOR Ultrasonic
 
 
-int speed_m = 750;
+//set BTSerial D4 =  RX , D8 = TX 
+SoftwareSerial BTSerial(D4, D8); // RX | TX//set BTSerial D4 =  RX , D8 = TX 
+
+/*
+int led = D1;
+int led2 = D3;
+*/
+char inbyte = 0;
 
 //INIT WIFI
 const char WiFiName[] = "LED_via_NodeMCU_by_FeezCEkmitl";
@@ -56,7 +61,6 @@ String string1 ="";
 
 ESP8266WebServer server(8888);
 unsigned int localPort = 8888;
-
 
 WiFiUDP UDP;
 boolean udpConnected = false;
@@ -77,22 +81,14 @@ void handleRoot() {
 //END INIT WIFI
 
 
-//INIT BLUETOOTH
-//set BTSerial D4 =  RX , D8 = TX 
-SoftwareSerial BTSerial(D4, D8); // RX | TX
-
-char command; //command = string from android studio
-String string;  //string of arduno
-
-char inbyte = 0;
 
 
-void setup() 
-{
-    Serial.begin(115200);
-    EEPROM.begin(512);
-    Serial.println();
-
+//float voltageValue[4] = {0,1,2,3};
+void setup() {
+    /*
+    pinMode(led, OUTPUT);
+    pinMode(led2, OUTPUT);
+    */
 
      //MOTER_A
     pinMode(ENA,OUTPUT);  //ENA
@@ -104,12 +100,9 @@ void setup()
     pinMode(IN3,OUTPUT);  //IN3
     pinMode(IN4,OUTPUT);  //IN4
 
+    //Serial.begin(9600);
 
-    
-    //TEST LED
-    pinMode(led,OUTPUT);  //led
-    pinMode(led2,OUTPUT);  //led
-
+    //wifi setup
     WiFi.softAP(WiFiName, WiFiPass);
     server.on("/", handleRoot);
     server.begin();
@@ -120,12 +113,12 @@ void setup()
     } 
 }
 
+//reset function
 void(*resetFunc)(void) = 0;  //reset Function
 
-void loop() 
-{
+void loop() {
 
-  //WIFI CONTROL
+//WIFI CONTROL
   server.handleClient();
   if(udpConnected)
   {
@@ -287,69 +280,15 @@ void loop()
         
     }
   }//END WIFI CONTROL
-
-
-
-   /*
-  //BLUETOOTH CONTROL
-   if (BTSerial.available() > 0) 
-    {string = "";}    //init string = NULL
-   
-    
-    while(BTSerial.available() > 0)
-    {
-      command = ((byte)BTSerial.read());  //get string from android studio
-      
-      if(command == ':')
-      {
-        break;
-      }
-      
-      else
-      {
-        string += command;  //move command(string from android studio) to string of arduino
-      }
-      
-      delay(1);
-    }
-    
-    if(string == "UP") //if string of arduino == UP
-    {
-        forward();
-    }
-    
-    if(string =="DOWN") //if string of arduino == DOWN
-    {
-        backward();
-    }
-
-     if(string == "LEFT") //if string of arduino == LEFT
-    {
-        left();
-    }
-    
-    if(string =="RIGHT") //if string of arduino == RIGHT
-    {
-        right();
-    }
-    
-    if(string =="STOP") //if string of arduino == STOP
-    {
-        stop_motor();
-    }
-
-    if(string =="Disconnect") //if string of arduino == STOP
-    {
-        //stop_motor();
-        resetFunc();
-    }
-    
-    Serial.println(string);  //show string of arduino in serial monitor*/
-  //END OLD Bluetooth
-
-
+  /*for ultrasonic sonic
+  int cm = 14;
+  if(cm == 15){
+    sendAndroidValues();    //GREEN PIC Value = 1;
+  }else{
+    sendAndroidValue2();   //RED PIC Value = 0;
+  }*/
   //NEW Bluetooth Method
-  long duration, cm;
+   long duration, cm;
      
    pinMode(pingPin, OUTPUT);
      
@@ -363,90 +302,146 @@ void loop()
    duration = pulseIn(inPin, HIGH);
 
    cm = microsecondsToCentimeters(duration);
+
       
   //for ultrasonic sonic
+  /*
   //int cm = 14;
   if(cm == 15){
-    sendAndroidValues();    //GREEN PIC Value = 1;
+    //sendAndroidValues();    //GREEN PIC Value = 1;
   }else{
-    sendAndroidValues2();   //RED PIC Value = 0;
+    //sendAndroidValues2();   //RED PIC Value = 0;
+  }*/
+
+ //for ultrasonic sonic
+  if(cm == 3){
+    sendAndroidValues2(); 
+    
+    
+    //stop_led();
+    stop_motor();
+    
+    //digitalWrite(led2, HIGH);
+    backward();
+    
+    delay(1000);
+    
+    //stop_led();
+    stop_motor();   
   }
+  //else{
+  //  sendAndroidValues(); 
+  //}
   
-  //sendAndroidValues();
+
   if (BTSerial.available() > 0)
   {
     inbyte = BTSerial.read();
-
-    //forward
-    if (inbyte == '0')  //RELEASE
+    if (inbyte == '0')
     {
       //LED off
-      digitalWrite(led, LOW);
-      //stop_motor();
+      //digitalWrite(led, LOW);
+
+      stop_motor();
     }
-    if (inbyte == '1')   ///PUSH
+    
+    if (inbyte == '1')
     {
       //LED on
-       digitalWrite(led, HIGH);
-       //forward();
+      //digitalWrite(led, HIGH);
+
+      forward();
     }
 
-    //backward
+     //backward
     if (inbyte == '2')  
     {
-      //sendAndroidValues();  
-      //stop_motor();
-      digitalWrite(led2, LOW);
+      //sendAndroidValues(); 
+      //digitalWrite(led2, LOW);
+      
+      stop_motor();
     }  
 
      if (inbyte == '3')  
     {
       //sendAndroidValues2(); 
-      //backward();
-      digitalWrite(led2, HIGH);
+      //digitalWrite(led2, HIGH);
+      
+      backward();
     } 
 
     //left
     if (inbyte == '4')  
     {
-       //stop_motor();
+       stop_motor();
     }  
 
      if (inbyte == '5')  
     {
-        //left();
+       left();
     } 
 
     //right
     if (inbyte == '6')  
     {
-        //stop_motor();
+        stop_motor();
     }  
 
      if (inbyte == '7')  
     {
-       //right();
+        right();
     }  
+
+    /*
+    if (inbyte == '2')  //PUSH
+    {
+      sendAndroidValues();  //1
+    }  
+
+     if (inbyte == '3')  //RELEASE
+    {
+      sendAndroidValues2(); //0
+    }*/
+   
     
   }
-  //delay(50);
-    
-}//END LOOP
-
-//WIFI FUNCTION
- boolean connectUDP()
- {
-    boolean state = false;
-    if(UDP.begin(localPort) == 1){
-      state = true;
-    }
-    else{
-      //NULL
-    }
-    return state;
+  delay(50);
 }
 
-//MOTER FUNCTION
+void sendAndroidValues()
+ {
+  //puts # before the values so our app knows what to do with the data
+  BTSerial.print('#');
+  //for loop cycles through 4 sensors and sends values via serial
+  //for(int k=0; k<4; k++)
+  //{
+  BTSerial.print(1);
+  BTSerial.print('+');
+    //technically not needed but I prefer to break up data values
+    //so they are easier to see when debugging
+  //}
+ BTSerial.print('~'); //used as an end of transmission character - used in app for string length
+ BTSerial.println();
+ delay(20);        //added a delay to eliminate missed transmissions
+}
+
+void sendAndroidValues2()
+ {
+  //puts # before the values so our app knows what to do with the data
+  BTSerial.print('#');
+  //for loop cycles through 4 sensors and sends values via serial
+  //for(int k=0; k<4; k++)
+  //{
+  BTSerial.print(0);
+  BTSerial.print('+');
+    //technically not needed but I prefer to break up data values
+    //so they are easier to see when debugging
+  //}
+ BTSerial.print('~'); //used as an end of transmission character - used in app for string length
+ BTSerial.println();
+ delay(20);        //added a delay to eliminate missed transmissions
+}
+
 void forward(){
      digitalWrite(IN3,HIGH);
      digitalWrite(IN4,LOW);
@@ -488,6 +483,7 @@ void right(){
      analogWrite(ENA,speed_m);   //speed 1023 //max cycle NodeMCU
 }
 
+
 void stop_motor(){
      digitalWrite(IN3,HIGH);
      digitalWrite(IN4,HIGH);
@@ -498,6 +494,12 @@ void stop_motor(){
      analogWrite(ENA,0);   //speed 1023 //max cycle NodeMCU
 }
 
+/*
+void stop_led(){
+     digitalWrite(led,LOW);
+     digitalWrite(led2,LOW);
+}*/
+
      
 long microsecondsToCentimeters(long microseconds)
 {
@@ -507,45 +509,16 @@ long microsecondsToCentimeters(long microseconds)
       return microseconds / 29 / 2;
 }
 
-
-void sendAndroidValues()
+//WIFI FUNCTION
+ boolean connectUDP()
  {
-  //puts # before the values so our app knows what to do with the data
-  BTSerial.print('#');
-  //for loop cycles through 4 sensors and sends values via serial
-  //for(int k=0; k<4; k++)
-  //{
-  BTSerial.print(1);
-  BTSerial.print('+');
-    //technically not needed but I prefer to break up data values
-    //so they are easier to see when debugging
-  //}
- BTSerial.print('~'); //used as an end of transmission character - used in app for string length
- BTSerial.println();
- delay(20);        //added a delay to eliminate missed transmissions
+    boolean state = false;
+    if(UDP.begin(localPort) == 1){
+      state = true;
+    }
+    else{
+      //NULL
+    }
+    return state;
 }
-
-void sendAndroidValues2()
- {
-  //puts # before the values so our app knows what to do with the data
-  BTSerial.print('#');
-  //for loop cycles through 4 sensors and sends values via serial
-  //for(int k=0; k<4; k++)
-  //{
-  BTSerial.print(0);
-  BTSerial.print('+');
-    //technically not needed but I prefer to break up data values
-    //so they are easier to see when debugging
-  //}
- BTSerial.print('~'); //used as an end of transmission character - used in app for string length
- BTSerial.println();
- delay(20);        //added a delay to eliminate missed transmissions
-}
-
-
-
-
-
-
-
 

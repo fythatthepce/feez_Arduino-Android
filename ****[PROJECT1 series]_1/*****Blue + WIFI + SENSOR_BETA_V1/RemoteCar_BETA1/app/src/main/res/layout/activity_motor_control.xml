@@ -80,5 +80,21 @@
         android:progress="0"
         android:layout_alignParentTop="true" />
 
+    <TextView
+        android:id="@+id/sensorView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/right"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/right"
+        android:layout_toRightOf="@+id/sensorView0"
+        android:layout_toEndOf="@+id/sensorView0" />
+
 
 </RelativeLayout>
