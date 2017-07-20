@@ -28,6 +28,7 @@ import android.widget.ProgressBar;
 import android.os.Handler;
 import java.io.InputStream;
 import java.io.OutputStream;
+import android.widget.CheckBox;
 
 
 
@@ -57,11 +58,13 @@ public class motorControl extends AppCompatActivity {
     private ProgressDialog progress;
     private boolean isBtConnected = false;
 
+
     //SPP UUID. Look for it
     private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     //Progress bar
     private ProgressBar pg1;
+    private CheckBox ck1;
 
 
     @Override
@@ -83,6 +86,10 @@ public class motorControl extends AppCompatActivity {
 
         sensorView0 = (TextView) findViewById(R.id.sensorView0);
         sensorViewimg0 = (ImageView)findViewById(R.id.imageView);
+
+        ck1 = (CheckBox)findViewById(R.id.checkBox);
+
+
 
 
 
@@ -221,6 +228,21 @@ public class motorControl extends AppCompatActivity {
                 return false;
             }
         });
+
+        setInitCheck();
+        ck1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ck1.isChecked()) {
+                    mConnectedThread.write("9");
+                    Toast.makeText(getApplicationContext(), "Enable Collision prevention", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    mConnectedThread.write("8");
+                    Toast.makeText(getApplicationContext(), "Disable Collision prevention", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });//end checkbox1
 
 
 
@@ -373,6 +395,11 @@ public class motorControl extends AppCompatActivity {
         }
 
     }
+
+    private void setInitCheck(){
+        ck1.setChecked(false);
+    }
+
 
 
 
