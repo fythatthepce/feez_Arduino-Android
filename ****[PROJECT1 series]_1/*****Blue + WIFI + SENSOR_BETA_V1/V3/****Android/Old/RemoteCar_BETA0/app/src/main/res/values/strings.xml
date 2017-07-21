@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">T.A.N.K v4</string>
+
+    <string name="title_activity_bluetooth_page">Select Control</string>
+
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main_tab">MainTabActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_flag_tab">MainFlagTab</string>
+    <string name="title_activity_selecttab">SELECTTAB</string>
+    <string name="title_activity_main_frag_tab">MainFragTAB</string>
+    <string name="title_activity_fragmain">Select Control</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
