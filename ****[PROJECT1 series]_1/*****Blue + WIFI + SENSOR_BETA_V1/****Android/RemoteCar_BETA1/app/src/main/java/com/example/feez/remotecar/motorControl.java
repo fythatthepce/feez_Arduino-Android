@@ -262,7 +262,7 @@ public class motorControl extends AppCompatActivity {
 
                 } else {
                     mConnectedThread.write("b");
-                    Toast.makeText(getApplicationContext(), "Disable Laser Control Mode", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please wait 10 seconds", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(motorControl.this, fragmain.class);
                     startActivity(i);
                 }
@@ -287,7 +287,7 @@ public class motorControl extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Disconnect(); //close connection
-                Toast.makeText(getApplicationContext(), "Disconnect ...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please wait 10 seconds...", Toast.LENGTH_LONG).show();
                 mConnectedThread.write("r");
                 Intent i = new Intent(motorControl.this, fragmain.class);
                 startActivity(i);

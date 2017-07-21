@@ -1,5 +1,6 @@
 package com.example.feez.remotecar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -183,6 +184,9 @@ public class wificontrol extends AppCompatActivity {//scope
     private void Disconnect(){
         turnOnOffWifi(context, false);
         Toast.makeText(getApplicationContext(), "turning off...", Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(wificontrol.this, fragmain.class);
+        startActivity(i);
     }
 
     //forward
