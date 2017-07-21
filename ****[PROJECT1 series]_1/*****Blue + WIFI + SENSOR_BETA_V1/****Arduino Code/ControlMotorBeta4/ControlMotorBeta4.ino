@@ -29,8 +29,9 @@
 
 int speed_m = 750;
 
-//enable/disable ultrasonic
+//enable/disable ultrasonic AND Laser
 char ENA_SONIC = 0;
+char ENA_LASER = 0;
 
 
 //for ultra sonic
@@ -126,6 +127,8 @@ void(*resetFunc)(void) = 0;  //reset Function
 
 void loop() {
 
+
+   /*
   //Laser
    ldr_value = analogRead(ldr);
    
@@ -137,6 +140,7 @@ void loop() {
      stop_motor();  
     //digitalWrite(led,LOW);
    }
+   */
 
 //WIFI CONTROL
   server.handleClient();
@@ -338,12 +342,19 @@ void loop() {
   //End for ultrasonic
   */
 
+
   //can use ultrasonic functio
-  //ENA_SONIC = '1';
+  
   if(ENA_SONIC == '1'){
      detect_obj();
   }else if(ENA_SONIC == '0'){
      detect_obj2();
+  }
+
+  if(ENA_LASER == '1'){
+     laser_func();
+  }else if(ENA_LASER == '0'){
+     laser_func2();
   }
   
   
@@ -433,6 +444,30 @@ void loop() {
     {
         ENA_SONIC = '1';
     }  
+
+    
+     if (inbyte == 'b')    //Check is false
+    {
+        //work state
+        resetFunc();  
+        
+
+        //Test State
+        //ENA_LASER = '0';
+        
+    }  
+
+    if (inbyte == 'a')   //Check is true
+    {
+        ENA_LASER = '1';
+    }
+    
+
+     if (inbyte == 'r')   //Disconnect Button
+    {
+        resetFunc();  
+    }
+    
 
     /*
     if (inbyte == '2')  //PUSH
@@ -619,5 +654,32 @@ void detect_obj2(){
     if(cm == 3){
       //NULL
     }
+}
+
+void laser_func(){
+   //Laser
+   ldr_value = analogRead(ldr);
+   
+   if(ldr_value != 1024)
+   {
+     //digitalWrite(led,HIGH);
+     
+     forward();
+   }else{
+    //digitalWrite(led,LOW);
+    
+     stop_motor();  
+   }
+}
+
+void laser_func2(){
+   //Laser
+   ldr_value = analogRead(ldr);
+   if(ldr_value != 1024)
+   {
+    //NULL
+   }else{
+    //NULL
+   }
 }
 
