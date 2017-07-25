@@ -1,7 +1,7 @@
 <?php  
 header("content-type:text/javascript;charset=utf-8");  
 
-$con=mysql_connect('localhost','root','Thatthep11711')or die(mysql_error());    
+$con=mysql_connect('localhost','root','Thatthep11xxx')or die(mysql_error());    
 mysql_select_db('feedroid')or die(mysql_error());  
 mysql_query("SET NAMES UTF8");  
 
