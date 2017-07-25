@@ -6,4 +6,6 @@ sftp://urbanstreet101.ddns.net  pi  11xxx  port 2222
 สร้าง DB : feedroid และ upload table ที่ชื่อ member <br>
 
 <br>https://github.com/miskoajkula/MySQL-PHP-JSON<br>
+<br>https://www.youtube.com/watch?v=0Fnk9ZgsTVw<br>
+<br>https://www.youtube.com/watch?v=H-SE1m_A-SA<br>
 
