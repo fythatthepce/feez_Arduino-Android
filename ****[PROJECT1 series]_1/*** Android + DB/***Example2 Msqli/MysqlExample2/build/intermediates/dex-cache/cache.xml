@@ -3,15 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/feez/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0_9b8f62882babd242305c343192a796212d2964ab.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/feez/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
         jumboMode="false"
         optimize="true"
@@ -30,12 +21,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/feez/.android/build-cache/4bd064be21dbe545783e4ec82c248405a8870244/output/jars/libs/internal_impl-23.0.0.jar"
+        jar="/Users/feez/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.18/38da306aafee11459cd935a01d2c92a98dc670a4/library-1.0.18.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_4b291b7aea8b23fb79f57e6cc52106eeb53286e4.jar" />
+        revision="26.0.0"
+        sha1="38da306aafee11459cd935a01d2c92a98dc670a4">
+        <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/library-1.0.18_9c5f0e37de1bf17407cef25463af772f541e74a3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -45,24 +36,6 @@
         revision="25.0.0"
         sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
         <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/classes_9648183799b240942109ef25ecd3343ec819b0c3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/feez/.android/build-cache/79fabf8971d036948181981ee01564d4549a3d13/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/classes_9b99598659e97b518420019d24ee60d133f6dfe8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/feez/.android/build-cache/4bd064be21dbe545783e4ec82c248405a8870244/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/feez/AndroidStudioProjects/MysqlExample2/app/build/intermediates/pre-dexed/debug/classes_b48248f5dc437067d0a3a0eb031ac0b1dce4d3e4.jar" />
     </item>
 
 </items>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -28,6 +29,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageButton btnBack;
+
     EditText username, password;
     Button summit;
     RequestQueue requestQueue;
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         summit = (Button) findViewById(R.id.summit);
 
         //result = (TextView) findViewById(R.id.textView);
+
+        btnBack = (ImageButton)findViewById(R.id.im1);
 
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -123,6 +128,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,menu.class);
+                startActivity(i);
+            }
+        });
 
     }//main
 
