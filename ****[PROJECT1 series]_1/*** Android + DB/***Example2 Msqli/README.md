@@ -9,3 +9,7 @@ sftp://urbanstreet101.ddns.net  pi  11xxx  port 2222
 <br>https://www.youtube.com/watch?v=0Fnk9ZgsTVw<br>
 <br>https://www.youtube.com/watch?v=H-SE1m_A-SA<br>
 
+
+<br>END DB with Android + php + json <br>
+
+
