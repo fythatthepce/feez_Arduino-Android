@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,6 +26,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -98,6 +102,51 @@ public class MainActivity extends AppCompatActivity {
         summit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                //Check Password
+                if(password.getText().toString().length()< 8 &&!isValidPassword(password.getText().toString())){
+                    //System.out.println("Not Valid : Password must contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character");
+                    Toast.makeText(getApplicationContext(),"Password must contains minimum 8 characters at least 1 Capital letters, 1 Number and 1 Special Character",Toast.LENGTH_SHORT).show();
+
+                }else {
+                    //System.out.println("Valid");
+                    //if(password.getText().toString().length()< 8)
+                    if(password.getText().toString().length()< 8)
+                    {
+                        StringRequest request = new StringRequest(Request.Method.POST, insertUrl, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+                                System.out.println(response.toString());
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }) {
+
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> parameters = new HashMap<String, String>();
+                                //parameters.put("Id",null);
+                                parameters.put("username", username.getText().toString());
+                                parameters.put("pass", password.getText().toString());
+                                return parameters;
+                            }
+                        };
+                        requestQueue.add(request);
+
+                        Intent i = new Intent(MainActivity.this, finishpage.class);
+                        startActivity(i);
+                   }else{
+                        Toast.makeText(getApplicationContext(),"Password must contains minimum 8 characters",Toast.LENGTH_SHORT).show();
+                    }
+                }//Big else
+
+
+                /*
                 StringRequest request = new StringRequest(Request.Method.POST, insertUrl, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,6 +173,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent i = new Intent(MainActivity.this,finishpage.class);
                 startActivity(i);
+                */
+
+
             }
 
         });
@@ -139,5 +191,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }//main
+
+
+
+    //function regex
+    public static boolean isValidPassword(final String password) {
+        Pattern pattern;
+        Matcher matcher;
+        //final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";  //Password must contains Big 1 Alphabet, 1 Number and 1 Special Character and no whitespace.
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+        return matcher.matches();
+
+    }
 
 }//scope
