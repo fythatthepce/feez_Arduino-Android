@@ -12,12 +12,13 @@
         android:id="@+id/editText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="Username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_above="@+id/editText2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
     <EditText
         android:id="@+id/editText2"
@@ -73,6 +74,16 @@
         android:layout_marginRight="11dp"
         android:background="@null"
         android:src="@drawable/backarr" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="( Passwords must contain : a minimum of 1 letter )"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="12sp"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
