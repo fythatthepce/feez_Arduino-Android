@@ -76,7 +76,7 @@ public class member extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> parameters = new HashMap<String, String>();
                         //parameters.put("Id",null);
-                        //parameters.put("username", username.getText().toString());
+                        parameters.put("username",s);
                         //parameters.put("password", password.getText().toString());
                         //parameters.put("email", email.getText().toString());
                         //parameters.put("loginstatus","0");

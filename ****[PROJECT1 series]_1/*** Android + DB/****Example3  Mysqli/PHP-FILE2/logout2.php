@@ -11,7 +11,8 @@
             
         	
             
-            $query_clear = "UPDATE member2 SET loginstatus ='0'";
+            $username = $_POST["username"];	
+            $query_clear= "UPDATE member2 SET loginstatus ='0' WHERE username='$username' ";
    
 
             mysqli_query($connect, $query_clear) or die (mysqli_error($connect));
