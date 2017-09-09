@@ -1,14 +1,32 @@
 # Bluetooth<br>
 <br>
-*** ใน HC05 บางรุ่นจะไม่มีขา KEY ให้ต่อ ต้องใช้วิธีการกดปุ่มบนโมดูลค้างไว้ แล้วจึงค่อยต่อขา VCC เข้าไปเพื่อจ่ายไฟ ขา EN และขา STATE ปล่อยว่างไว้
-<br>
+
 1.ตั้งชื่อและพาสของ Bluetooth HC-05<br>
 ref:http://howtomechatronics.com/tutorials/arduino/arduino-and-hc-05-bluetooth-module-tutorial/<br>
 ref:http://blog.redlinesoft.net/?p=3003<br>
 connect : <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b1.png"/>
 <br>
-<img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b2.png"/>
+*** ใน HC05 บางรุ่นจะไม่มีขา KEY ให้ต่อ ต้องใช้วิธีการกดปุ่มบนโมดูลค้างไว้ แล้วจึงค่อยต่อขา VCC เข้าไปเพื่อจ่ายไฟ ขา EN และขา STATE ปล่อยว่างไว้ ***
+<br>
+<br>#include <SoftwareSerial.h>
+<br>
+<br>SoftwareSerial mySerial(10, 11); // RX, TX
+<br>
+<br>void setup()
+<br>{
+<br>  Serial.begin(38400);
+<br>  while (!Serial) ;
+<br>  mySerial.begin(38400);
+<br>}
+<br>
+<br>void loop()
+<br>{
+<br>  if (mySerial.available())
+<br>    Serial.write(mySerial.read());
+<br>  if (Serial.available())
+<br>    mySerial.write(Serial.read());
+<br>}
 <br>
 <br>
 Setting : <br>
