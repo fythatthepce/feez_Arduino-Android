@@ -35,7 +35,7 @@ Setting : <br>
 
 <br>
 <br>
-เปลี่ยนพาสที่ใช้จับคู่ ใช้คำสั่ง AT+PSWD=New Password เช่น ต้องการตั้งค่าเป็นรหัส 9876 ต้องใช้คำสั่ง AT+PSWD=9876<br>
+เปลี่ยนพาสที่ใช้จับคู่ ใช้คำสั่ง AT+PSWD=New Password เช่น ต้องการตั้งค่าเป็นรหัส 9876 ต้องใช้คำสั่ง AT+PSWD=9876 ส่วนใน project นี้ใช้ 45xx <br>
 *** เอาขา VCC ออก แล้วเสียบเข้าไปใหม่แล้วให้โทรศัพท์ค้นหาชื่อ Bluetooth เป็นอันเสร็จ ***
 <br><br>
 Connect Mobile test by Bluetooth Terminal ไม่จำเป็นต้องทดสอบก็ได้ ข้ามไปทำ part android เลย : <br>
