@@ -152,12 +152,24 @@ public class SoundControl extends AppCompatActivity {
 
 
                     //if sound = left show welcome left
-                    if(result.contains("left")) {
+                    if(result.contains("left") || result.contains("rest") ) {
                         showVoiceText.setText("Welcome left!!!");
 
+                        if (btSocket!=null)
+                        {
+                            try
+                            {
+                                btSocket.getOutputStream().write("LEFT".toString().getBytes());
+                            }
+                            catch (IOException e)
+                            {
+                                msg("Error");
+                            }
+                        }
 
 
-                    }else if(result.contains("right")){
+
+                    }else if(result.contains("right") || result.contains("light")){
 
                         showVoiceText.setText("Welcome right!!!");
 
@@ -173,14 +185,40 @@ public class SoundControl extends AppCompatActivity {
                             }
                         }
 
-                    }else if(result.contains("up")){
+                    }else if(result.contains("go") || result.contains("call") ){
 
-                        showVoiceText.setText("Welcome up!!!");
+                        showVoiceText.setText("Welcome Go!!!");
+
+                        if (btSocket!=null)
+                        {
+                            try
+                            {
+                                btSocket.getOutputStream().write("GO".toString().getBytes());
+                            }
+                            catch (IOException e)
+                            {
+                                msg("Error");
+                            }
+                        }
                     }
 
-                    else if(result.contains("down")) {
+                    else if(result.contains("down") || result.contains("now")) {
                         showVoiceText.setText("Welcome down!!!");
+
+                        if (btSocket!=null)
+                        {
+                            try
+                            {
+                                btSocket.getOutputStream().write("DOWN".toString().getBytes());
+                            }
+                            catch (IOException e)
+                            {
+                                msg("Error");
+                            }
+                        }
                     }
+
+
 
                     else if(result.contains("stop")) {
                         showVoiceText.setText("Welcome stop!!!");
