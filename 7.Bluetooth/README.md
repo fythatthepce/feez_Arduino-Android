@@ -7,7 +7,7 @@ ref:http://blog.redlinesoft.net/?p=3003<br>
 connect : <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b1.png"/>
 <br>
-*** ใน HC05 บางรุ่นจะไม่มีขา KEY ให้ต่อ ต้องใช้วิธีการกดปุ่มบนโมดูลค้างไว้ แล้วจึงค่อยต่อขา VCC เข้าไปเพื่อจ่ายไฟ ขา EN และขา STATE ปล่อยว่างไว้ ***
+*** ให้เข้าสู่ setting mode ของ HC05 โดยการกดโมดูลค้างไว้ แล้วจึงค่อยต่อขา VCC เข้าไป ส่วน EN และขา STATE ปล่อยว่างไว้ ***
 <br>
 <br>#include <SoftwareSerial.h>
 <br>
@@ -32,9 +32,11 @@ connect : <br>
 Setting : <br>
 ลองพิมพ์ AT จากนั้นกด Enter จะขึ้นว่า OK หรือ ERROR แสดงว่าต่อวงจรถูกแล้ว และโมดูลอยู่ในโหมดพร้อมรับคำสั่งตั้งค่าแล้ว<br>
 คำสั่งเปลี่ยนชื่ออุปกรณ์ คือคำสั่ง AT+NAME="Device Name" เช่น หากต้องการเปลี่ยนชื่อเป็น IOXhop HC5 ต้องพิมพ์ว่า AT+NAME="IOXhop HC5" แล้วกด Enter หากสำเร็จจะขึ้น OK
+
 <br>
 <br>
 เปลี่ยนพาสที่ใช้จับคู่ ใช้คำสั่ง AT+PSWD=New Password เช่น ต้องการตั้งค่าเป็นรหัส 9876 ต้องใช้คำสั่ง AT+PSWD=9876<br>
+*** เอาขา VCC ออก แล้วเสียบเข้าไปใหม่แล้วให้โทรศัพท์ค้นหาชื่อ Bluetooth เป็นอันเสร็จ ***
 <br><br>
 Connect Mobile test by Bluetooth Terminal ไม่จำเป็นต้องทดสอบก็ได้ ข้ามไปทำ part android เลย : <br>
 <img src="https://github.com/fythatthepce/feez_Arduino-Android/blob/master/Pictures/b3.png"/>
