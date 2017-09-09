@@ -1,25 +1,19 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial BTSerial(10, 11); // RX | TX
+SoftwareSerial mySerial(10, 11); // 10 ต่อกับ TX ใน HC05, 11 ต่อกับ RX ใน HC05
 
 void setup()
 {
-  pinMode(9, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
-  digitalWrite(9, HIGH);
-  Serial.begin(9600);
-  Serial.println("Enter AT commands:");
-  BTSerial.begin(38400);  // HC-05 default speed in AT command more
+  Serial.begin(38400);
+  while (!Serial) ;
+  mySerial.begin(38400);
 }
 
 void loop()
 {
-
-  // Keep reading from HC-05 and send to Arduino Serial Monitor
-  if (BTSerial.available())
-    Serial.write(BTSerial.read());
-
-  // Keep reading from Arduino Serial Monitor and send to HC-05
+  if (mySerial.available())
+    Serial.write(mySerial.read());
   if (Serial.available())
-    BTSerial.write(Serial.read());
+    mySerial.write(Serial.read());
 }
