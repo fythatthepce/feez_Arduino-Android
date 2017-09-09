@@ -1,5 +1,7 @@
 # Bluetooth<br>
 <br>
+*** ใน HC05 บางรุ่นจะไม่มีขา KEY ให้ต่อ ต้องใช้วิธีการกดปุ่มบนโมดูลค้างไว้ แล้วจึงค่อยต่อขา VCC เข้าไปเพื่อจ่ายไฟ ขา EN และขา STATE ปล่อยว่างไว้
+<br>
 1.ตั้งชื่อและพาสของ Bluetooth HC-05<br>
 ref:http://howtomechatronics.com/tutorials/arduino/arduino-and-hc-05-bluetooth-module-tutorial/<br>
 ref:http://blog.redlinesoft.net/?p=3003<br>
